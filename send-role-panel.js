@@ -1,3 +1,4 @@
+require('dotenv').config();
 const { 
   Client, 
   GatewayIntentBits, 
@@ -50,13 +51,20 @@ client.once('ready', async () => {
       '> *Haftalık teknik geliştirme notları, yapay zeka deneyleri ve mutfak arkası paylaşımları için.*\n\n' +
       '**🧪 Playtest Ping**\n' +
       '> *Kombo Kart veya diğer sistemlerin yeni test sürümleri çıktığında ilk deneyenlerden olmak için.*\n\n' +
+      '**🍳 KALANLA Tester**\n' +
+      '> *KALANLA Kitchen OS sıfır atık mutfak uygulamasının erken test sürümleri ve hata bildirimleri için.*\n\n' +
       '──────────────────────────────────────\n' +
       'ℹ️ *İpucu: Butona tekrar tıkladığınızda rol üzerinizden geri alınır.*'
     )
     .setFooter({ text: 'Rynia Studios • Topluluk Rol Sistemi' });
 
-  // Row 1: Topluluk Rolleri
+  // Row 1: Topluluk & Test Rolleri
   const row1 = new ActionRowBuilder().addComponents(
+    new ButtonBuilder()
+      .setCustomId('role_kalanla_tester')
+      .setLabel('KALANLA Tester')
+      .setEmoji('🍳')
+      .setStyle(ButtonStyle.Success),
     new ButtonBuilder()
       .setCustomId('role_builder')
       .setLabel('Builder / Developer')
